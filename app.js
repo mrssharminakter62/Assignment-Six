@@ -22,11 +22,25 @@ const showImages = (images) => {
   images.forEach(image => {
     let div = document.createElement('div');
     div.className = 'col-lg-3 col-md-4 col-xs-6 img-item mb-2';
-    div.innerHTML = ` <img class="img-fluid img-thumbnail" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">`;
+    div.innerHTML = ` <img class="img-fluid img-thumbnail" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">
+    <div class="d-flex justify-content-between">
+    <p class="fs-6 fw-bold">${image.tags}</p>
+    <div  class="d-flex">
+    <i class="fas fa-thumbs-up flot-end mt-1"></i>
+    <p class="fs-6">:${image.likes}</p>
+    </div>
+    </div>
+    `;
     gallery.appendChild(div)
   })
 
 }
+        // Enter keypress------------------------------
+  document.getElementById("search").addEventListener("keypress", function (event){
+     if (event.key == 'Enter'){
+        document.getElementById("search-btn").click();
+        }
+   })       
 
 const getImages = (query) => {
   fetch(`https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`)
@@ -120,3 +134,5 @@ searchBtn.addEventListener('click', function () {
 sliderBtn.addEventListener('click', function () {
   createSlider()
 })
+
+    
