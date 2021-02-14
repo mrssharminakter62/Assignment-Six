@@ -26,7 +26,7 @@ const showImages = (images) => {
     <div class="d-flex justify-content-between">
     <p class="fs-6 fw-bold">${image.tags}</p>
     <div  class="d-flex">
-    <i class="fas fa-thumbs-up flot-end mt-1"></i>
+    <i class="fas fa-thumbs-up float-end mt-1"></i>
     <p class="fs-6">:${image.likes}</p>
     </div>
     </div>
@@ -81,7 +81,17 @@ const createSlider = () => {
   document.querySelector('.main').style.display = 'block';
   // hide image aria
   imagesArea.style.display = 'none';
+
+  // Time Duration Area------------------------
   const duration = document.getElementById('duration').value || 1000;
+  if(duration > 0){
+    console.log(duration);
+     }
+    else{
+    alert("Type positive value");
+    document.querySelector('.main').style.display = 'none';
+  }
+
   sliders.forEach(slide => {
     let item = document.createElement('div')
     item.className = "slider-item";
