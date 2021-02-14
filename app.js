@@ -88,7 +88,7 @@ const createSlider = () => {
     console.log(duration);
      }
     else{
-    alert("Type positive value");
+    alert("Type positive duration");
     document.querySelector('.main').style.display = 'none';
   }
 
